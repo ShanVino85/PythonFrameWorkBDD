@@ -1,0 +1,47 @@
+{
+  "name": "Display list of patients",
+  "status": "passed",
+  "steps": [
+    {
+      "name": "Given User is on my patients",
+      "status": "passed",
+      "start": 1655299052732,
+      "stop": 1655299052733
+    },
+    {
+      "name": "When User clicks on search button with all fields empty",
+      "status": "passed",
+      "start": 1655299052733,
+      "stop": 1655299052733
+    },
+    {
+      "name": "Then Displays all patients for that dietician only",
+      "status": "passed",
+      "start": 1655299052733,
+      "stop": 1655299052733
+    }
+  ],
+  "start": 1655299052732,
+  "stop": 1655299052733,
+  "uuid": "470a7a0d-1b41-4f30-86ed-d940cec0da80",
+  "historyId": "54e3937a655159fcb330a1c51496153e",
+  "fullName": "Fetch patient info: Display list of patients",
+  "labels": [
+    {
+      "name": "severity",
+      "value": "normal"
+    },
+    {
+      "name": "feature",
+      "value": "Fetch patient info"
+    },
+    {
+      "name": "framework",
+      "value": "behave"
+    },
+    {
+      "name": "language",
+      "value": "cpython3"
+    }
+  ]
+}
