@@ -9,7 +9,6 @@ pipeline {
             }
         }
 
-          stages {
         stage ("build") {
             steps {
                 // Steps
@@ -29,7 +28,8 @@ pipeline {
                 echo 'Deploying the application..'
             }
         }
-    }
+
+}
 }
 
 
