@@ -9,20 +9,28 @@ pipeline {
             }
         }
 
-       stage('reports') {
-    steps {
-    script {
-            allure([
-                    includeProperties: false,
-                    jdk: '',
-                    properties: [],
-                    reportBuildPolicy: 'ALWAYS',
-                    results: [[path: 'Reports']]
-            ])
-    }
+          stages {
+        stage ("build") {
+            steps {
+                // Steps
+                echo 'Building the application..'
+            }
+        }
+
+        stage ("test") {
+            steps {
+                // Steps
+                echo 'Testing the application..'
+            }
+        }
+
+        stage ("deploy") {
+            steps {
+                echo 'Deploying the application..'
+            }
+        }
     }
 }
 
 
-          }
 }
