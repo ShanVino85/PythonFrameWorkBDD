@@ -1,58 +1,17 @@
 pipeline {
-    agent {
-        node {
-            label 'my_local_server'
-            customWorkspace '/PythonFrameWorkBDD/'
-        }
-    }
+    agent any
     stages {
-        stage('Checkout project') {
+        stage('Checkout') {
             steps {
                 script {
-                    git branch: "main",
-                        credentialsId: 'my-credentials',
-                        url: 'https://github.com/shanvino85/PythonFrameWorkBDD.git'
+                        checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '9bdbdb10-b9c9-4788-8447-187b76790749', url: 'https://github.com/shanvino85/PythonFrameWorkBDD.git']]])
                 }
             }
         }
-        stage('Installing packages') {
+        stage('Allure Report') {
             steps {
                 script {
-                    sh 'pip install -r requirements.txt'
-                }
-            }
-        }
-        stage('Static Code Checking') {
-            steps {
-                script {
-                    sh 'find . -name \\*.py | xargs pylint -f parseable | tee pylint.log'
-                    recordIssues(
-                        tool: pyLint(pattern: 'pylint.log'),
-                        unstableTotalHigh: 100,
-                    )
-                }
-            }
-        }
-        stage('Running Unit tests') {
-            steps {
-                script {
-                    sh 'pytest --with-xunit --xunit-file=pyunit.xml --cover-xml --cover-xml-file=cov.xml steps/*.py || true'
-                    step([$class: 'CoberturaPublisher',
-                        coberturaReportFile: "cov.xml",
-                        onlyStable: false,
-                        failNoReports: true,
-                        failUnhealthy: false,
-                        failUnstable: false,
-                        autoUpdateHealth: true,
-                        autoUpdateStability: true,
-                        zoomCoverageChart: true,
-                        maxNumberOfBuilds: 10,
-                        lineCoverageTargets: '80, 80, 80',
-                        conditionalCoverageTargets: '80, 80, 80',
-                        classCoverageTargets: '80, 80, 80',
-                        fileCoverageTargets: '80, 80, 80',
-                    ])
-                    junit "pyunit.xml"
+                    sh 'allure serve reports'
                 }
             }
         }
