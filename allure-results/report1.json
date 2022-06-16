@@ -1,0 +1,47 @@
+{
+  "name": "Validation of View PDF option",
+  "status": "passed",
+  "steps": [
+    {
+      "name": "Given User is logged on to Dietician website to validate PDF",
+      "status": "passed",
+      "start": 1655311817478,
+      "stop": 1655311817478
+    },
+    {
+      "name": "When User is on View Recent Diets Page",
+      "status": "passed",
+      "start": 1655311817478,
+      "stop": 1655311817478
+    },
+    {
+      "name": "Then View PDF option is available for the generated diet plans",
+      "status": "passed",
+      "start": 1655311817478,
+      "stop": 1655311817478
+    }
+  ],
+  "start": 1655311817477,
+  "stop": 1655311817478,
+  "uuid": "2f2786ab-a033-4540-a9c8-1392206662c5",
+  "historyId": "edeec3a1e2467ea135907192debda1c7",
+  "fullName": "View PDF: Validation of View PDF option",
+  "labels": [
+    {
+      "name": "severity",
+      "value": "normal"
+    },
+    {
+      "name": "feature",
+      "value": "View PDF"
+    },
+    {
+      "name": "framework",
+      "value": "behave"
+    },
+    {
+      "name": "language",
+      "value": "cpython3"
+    }
+  ]
+}
