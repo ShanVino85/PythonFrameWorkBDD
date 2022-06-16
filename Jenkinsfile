@@ -29,5 +29,13 @@ pipeline {
             }
         }
 
+        stage('reports')
+        {
+        steps {
+                echo 'Deploying the application..'
+            }
+
+        }
+
 }
 }
